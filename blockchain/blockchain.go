@@ -1,17 +1,20 @@
-package main
+package blockchain
 
-import "time"
+import (
+    "time"
+    "go-blockchain/models" // import Block struct
+)
 
-var Blockchain []Block
+// Exported Blockchain variable
+var Blockchain []models.Block
 
-func generateBlock(prevBlock Block, data string) Block {
-	newBlock := Block{
-		Index:     prevBlock.Index + 1,
-		Timestamp: time.Now().String(),
-		Data:      data,
-		PrevHash:  prevBlock.Hash,
-	}
-
-	newBlock.Hash = calculateHash(newBlock)
-	return newBlock
+func GenerateBlock(prevBlock models.Block, data string) models.Block {
+    newBlock := models.Block{
+        Index:     prevBlock.Index + 1,
+        Timestamp: time.Now().String(),
+        Data:      data,
+        PrevHash:  prevBlock.Hash,
+    }
+    newBlock.Hash = CalculateHash(newBlock) // same package, can call directly
+    return newBlock
 }

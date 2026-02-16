@@ -1,16 +1,18 @@
+package blockchain
 
-package main
+import (
+    "time"
+    "go-blockchain/models"
+)
 
-import "time"
-
-func createGenesisBlock() Block {
-	genesis := Block{
-		Index:     0,
-		Timestamp: time.Now().String(),
-		Data:      "Genesis Block",
-		PrevHash:  "",
-	}
-
-	genesis.Hash = calculateHash(genesis)
-	return genesis
+func CreateGenesisBlock() models.Block {
+    genesis := models.Block{
+        Index:     0,
+        Timestamp: time.Now().String(),
+        Data:      "Genesis Block",
+        PrevHash:  "",
+    }
+    genesis.Hash = CalculateHash(genesis) // same package
+    Blockchain = append(Blockchain, genesis)
+    return genesis
 }
