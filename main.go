@@ -21,4 +21,21 @@ func main() {
         fmt.Println("Hash:", block.Hash)
         fmt.Println("-------------------")
     }
+      //  Validate blockchain
+    if blockchain.IsBlockchainValid(blockchain.Blockchain) {
+        fmt.Println("Blockchain is valid ✅")
+    } else {
+        fmt.Println("Blockchain is invalid ❌")
+    }
+    //Tamper a block (simulate fraud)
+    fmt.Println("\nTampering with block 1...")
+    blockchain.Blockchain[1].Data = "Tx: A pays B 10000"
+
+    // Validate blockchain again
+    if blockchain.IsBlockchainValid(blockchain.Blockchain) {
+        fmt.Println("Blockchain is valid ✅")
+    } else {
+        fmt.Println("Blockchain is invalid ❌")
+    }
 }
+

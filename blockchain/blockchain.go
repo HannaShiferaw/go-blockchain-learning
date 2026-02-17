@@ -14,6 +14,7 @@ func GenerateBlock(prevBlock models.Block, data string) models.Block {
         Timestamp: time.Now().String(),
         Data:      data,
         PrevHash:  prevBlock.Hash,
+		Nonce: 0,
     }
     newBlock.Hash = CalculateHash(newBlock) // same package, can call directly
     return newBlock

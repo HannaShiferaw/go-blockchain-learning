@@ -9,7 +9,7 @@ import (
 
 // Exported function
 func CalculateHash(block models.Block) string {
-    record := fmt.Sprintf("%d%s%s%s", block.Index, block.Timestamp, block.Data, block.PrevHash)
+    record := fmt.Sprintf("%d%s%s%s", block.Index, block.Timestamp, block.Data, block.PrevHash, block.Nonce)
     hash := sha256.Sum256([]byte(record))
     return hex.EncodeToString(hash[:])
 }

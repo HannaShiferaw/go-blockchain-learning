@@ -6,4 +6,5 @@ type Block struct {
     Data      string
     PrevHash  string
     Hash      string
+    Nonce     int 
 }
