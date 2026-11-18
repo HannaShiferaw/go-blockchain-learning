@@ -1,0 +1,5 @@
+# Built binary
+/go-blockchain-learning
+
+# Saved chain created by running the program
+blockchain.json
